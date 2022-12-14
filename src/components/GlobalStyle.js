@@ -6,6 +6,8 @@ html {
   box-sizing: border-box;
   width: 100vw;
   overflow-x: hidden;
+  height: 100vh;
+  
 }
 
 *,
@@ -31,6 +33,7 @@ ol {
 }
  
  body {
+ 
   margin: 0;
   font-family: Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   -webkit-font-smoothing: antialiased;

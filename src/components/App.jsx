@@ -15,7 +15,6 @@ export class App extends Component {
 
   render() {
     const { query } = this.state;
-    console.log(query);
     return (
       <Layout>
         <SearchBar onSubmit={this.handleSubmitSearchBar} />

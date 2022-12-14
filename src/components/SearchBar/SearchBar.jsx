@@ -27,6 +27,7 @@ export class SearchBar extends Component {
       return;
     }
     onSubmit(query);
+
     this.resetSearchForm();
   };
 

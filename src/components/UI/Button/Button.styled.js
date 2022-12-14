@@ -5,8 +5,6 @@ export const Btn = styled.button`
   border-radius: 2px;
   background-color: #3f51b5;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  text-align: center;
-  display: inline-block;
   color: #fff;
   border: 0;
   text-decoration: none;
@@ -23,4 +21,10 @@ export const Btn = styled.button`
   :focus {
     background-color: #303f9f;
   }
+`;
+
+export const BtnWrapper = styled.div`
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
 `;
