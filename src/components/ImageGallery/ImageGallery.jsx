@@ -32,11 +32,17 @@ export class ImageGallery extends Component {
       this.setState({ isLoading: true });
 
       const data = await fetchImg(query, currentPage);
-      this.setState(prevState => ({
-        images: [...prevState.images, ...data.hits],
-        totalPhotos: data.totalHits,
-        showButton: currentPage < Math.ceil(data.totalHits / 12) ? true : false,
-      }));
+      data.hits.map(({ id, largeImageURL, tags, webformatURL }) => {
+        return this.setState(prevState => ({
+          images: [
+            ...prevState.images,
+            { id, largeImageURL, tags, webformatURL },
+          ],
+          totalPhotos: data.totalHits,
+          showButton:
+            currentPage < Math.ceil(data.totalHits / 12) ? true : false,
+        }));
+      });
     } catch {
       this.setState({
         error: `"${query}" doesn't exist, or check your internet connection!`,
