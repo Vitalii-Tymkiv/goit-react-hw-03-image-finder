@@ -31,10 +31,7 @@ export class App extends Component {
   loadItems = async (query, currentPage) => {
     try {
       this.setState({ isLoading: true });
-
       const data = await fetchImg(query, currentPage);
-      console.log(data);
-
       data.hits.map(({ id, largeImageURL, tags, webformatURL }) => {
         return this.setState(prevState => ({
           images: [
