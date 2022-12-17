@@ -22,7 +22,11 @@ export class App extends Component {
   state = INITIAL_STATE;
 
   handleSubmitSearchBar = query => {
-    this.setState({ query });
+    this.setState({
+      query,
+      images: [],
+      currentPage: 1,
+    });
   };
   handleLoadMore = () => {
     this.setState(prevState => ({ currentPage: prevState.currentPage + 1 }));
@@ -55,11 +59,12 @@ export class App extends Component {
   componentDidUpdate(_, prevState) {
     const { currentPage, images } = this.state;
     const { query } = this.state;
-    if (prevState.query !== query) {
-      this.setState(INITIAL_STATE);
-    }
+
     if (prevState.query !== query || prevState.currentPage !== currentPage) {
       this.loadItems(query, currentPage);
+    }
+    if (prevState.query !== query) {
+      this.setState(INITIAL_STATE);
     }
     if (prevState.images.length < images.length) {
       scroll.scrollToBottom(scrollOptions);

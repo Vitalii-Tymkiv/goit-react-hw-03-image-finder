@@ -23,7 +23,15 @@ export class SearchBar extends Component {
     const { query } = this.state;
     const { onSubmit } = this.props;
     if (query.trim() === '') {
-      toast.error('Enter a search query', { position: 'top-center' });
+      toast.error('Enter a search query', {
+        duration: 2000,
+        style: {
+          border: '1px solid #3f51b5',
+          padding: '16px',
+          color: '#3f51b5',
+          width: '400px',
+        },
+      });
       return;
     }
     onSubmit(query);
@@ -54,7 +62,7 @@ export class SearchBar extends Component {
             value={query}
           ></Input>
         </Form>
-        <Toaster />
+        <Toaster position="top-center" />
       </SearchHeader>
     );
   }
